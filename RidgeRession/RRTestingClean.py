@@ -86,7 +86,8 @@ def RidgeRegression(file):
 	real = 0
 	clf = Ridge(alpha=1.0)
 	clf.fit(geno,pheno)
-	return Ridge(alpha=1.0, fit_intercept = True, max_iter = None, normalize = False, solver = 'auto', tol = 0.001)
+	print clf.coef_
+	#return Ridge(alpha=1.0, fit_intercept = True, max_iter = None, normalize = False, solver = 'auto', tol = 0.001)
 
 
 
