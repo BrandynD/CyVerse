@@ -1,0 +1,60 @@
+{
+  "name": "RidgePredit",
+  "version": "1.0",
+  "label": "RidgePredict",
+  "defaultQueue": "normal",
+  "defaultNodeCount": 1,
+  "defaultMemoryPerNode": 4,
+  "defaultProcessorsPerNode": 1,
+  "defaultRequestedTime": "00:30:00",
+  "shortDescription": "Phenotype Value Prediction",
+  "longDescription": "Predict missing Phenotype values from given PED file",
+  "executionType": "HPC",
+  "parallelism": "SERIAL",
+  "deploymentSystem": "data.iplantcollaborative.org",
+  "templatePath": "wrapper.sh",
+  "testPath": "testRidgePredict.sh",
+  "inputs": [
+    {
+      "id": "inputPed",
+      "details": {
+        "label": "PED file",
+        "description": "A PED file with missing Phenotype Values",
+        "attribute": "--input",
+        "showAttribute": false
+      },
+      "semantics": {
+        "minCardinality": 1
+      },
+      "value": {
+        "validator": ".ped$",
+        "required": true,
+        "visible": true,
+        "order": 0
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "id": "outputPed",
+      "value": {
+        "type": "string",
+        "required": true,
+        "visible": true,
+      },
+      "details": {
+	    "label": "Output",
+		"description": "The predicted phenotype values",
+		"attribute": "--output"
+      },
+	  "semantics":{
+	           "maxCardinality":1,
+			   "minCardinality":1,
+			   "ontology": [
+			           "xs:string"
+			   ]
+	  }
+    }
+  ],
+  "checkpointable": false
+}
